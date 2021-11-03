@@ -74,5 +74,22 @@ namespace Lucho
                 }
             }
         }
+
+        public Producto BuscarProd(int id)
+        {
+            Producto Busca = new Producto();
+            for (int fila = 0; fila < DT.Rows.Count; fila++)
+            {
+                if (Convert.ToInt32(DT.Rows[fila]["Id"]) == id)
+                {
+                    Busca.Id = Convert.ToInt32(DT.Rows[fila]["Id"]);
+                    Busca.Cat = DT.Rows[fila]["Categoria"].ToString();
+                    Busca.Prod = DT.Rows[fila]["Producto"].ToString();
+                    Busca.Cant = Convert.ToInt32(DT.Rows[fila]["Cantidad"]);
+                    break;
+                }
+            }
+            return Busca;
+        }
     }
 }

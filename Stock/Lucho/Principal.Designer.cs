@@ -32,39 +32,33 @@ namespace Lucho
             this.DGV_Datos = new System.Windows.Forms.DataGridView();
             this.TB_Producto = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Btn_Borrar = new System.Windows.Forms.Button();
             this.Btn_Cargar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.TB_Cantidad = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.TB_Cat = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.Btn_Vender = new System.Windows.Forms.Button();
-            this.Btn_Buscar = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.TB_CantVenta = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.TB_CatVenta = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.TB_ProdVenta = new System.Windows.Forms.TextBox();
+            this.Btn_Borrar = new System.Windows.Forms.Button();
             this.Btn_Cerrar = new System.Windows.Forms.Button();
             this.Lbl_Notificaciones = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.TB_BuscarCant = new System.Windows.Forms.TextBox();
+            this.TB_BuscarCat = new System.Windows.Forms.TextBox();
+            this.TB_BuscarID = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.Btn_AumentarStock = new System.Windows.Forms.Button();
-            this.Btn_BuscarAumentar = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.TB_CantAumentar = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.Btn_Buscar = new System.Windows.Forms.Button();
             this.TB_CatAumentar = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.TB_ProdAumentar = new System.Windows.Forms.TextBox();
+            this.TB_BuscarProd = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.Lbl_Prueba = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Datos)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -73,9 +67,9 @@ namespace Lucho
             // DGV_Datos
             // 
             this.DGV_Datos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_Datos.Location = new System.Drawing.Point(12, 147);
+            this.DGV_Datos.Location = new System.Drawing.Point(12, 14);
             this.DGV_Datos.Name = "DGV_Datos";
-            this.DGV_Datos.Size = new System.Drawing.Size(461, 300);
+            this.DGV_Datos.Size = new System.Drawing.Size(461, 425);
             this.DGV_Datos.TabIndex = 0;
             // 
             // TB_Producto
@@ -87,7 +81,6 @@ namespace Lucho
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.Btn_Borrar);
             this.groupBox1.Controls.Add(this.Btn_Cargar);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.TB_Cantidad);
@@ -95,21 +88,12 @@ namespace Lucho
             this.groupBox1.Controls.Add(this.TB_Cat);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.TB_Producto);
-            this.groupBox1.Location = new System.Drawing.Point(493, 17);
+            this.groupBox1.Location = new System.Drawing.Point(493, 108);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(297, 162);
+            this.groupBox1.Size = new System.Drawing.Size(297, 135);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cargar productos";
-            // 
-            // Btn_Borrar
-            // 
-            this.Btn_Borrar.Location = new System.Drawing.Point(23, 126);
-            this.Btn_Borrar.Name = "Btn_Borrar";
-            this.Btn_Borrar.Size = new System.Drawing.Size(252, 23);
-            this.Btn_Borrar.TabIndex = 5;
-            this.Btn_Borrar.Text = "Borrar";
-            this.Btn_Borrar.UseVisualStyleBackColor = true;
             // 
             // Btn_Cargar
             // 
@@ -132,7 +116,7 @@ namespace Lucho
             // 
             // TB_Cantidad
             // 
-            this.TB_Cantidad.Location = new System.Drawing.Point(163, 34);
+            this.TB_Cantidad.Location = new System.Drawing.Point(164, 34);
             this.TB_Cantidad.Name = "TB_Cantidad";
             this.TB_Cantidad.Size = new System.Drawing.Size(112, 20);
             this.TB_Cantidad.TabIndex = 2;
@@ -148,7 +132,7 @@ namespace Lucho
             // 
             // TB_Cat
             // 
-            this.TB_Cat.Location = new System.Drawing.Point(22, 34);
+            this.TB_Cat.Location = new System.Drawing.Point(21, 34);
             this.TB_Cat.Name = "TB_Cat";
             this.TB_Cat.Size = new System.Drawing.Size(112, 20);
             this.TB_Cat.TabIndex = 1;
@@ -162,92 +146,18 @@ namespace Lucho
             this.label1.TabIndex = 2;
             this.label1.Text = "Nombre del producto";
             // 
-            // groupBox2
+            // Btn_Borrar
             // 
-            this.groupBox2.Controls.Add(this.Btn_Vender);
-            this.groupBox2.Controls.Add(this.Btn_Buscar);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.TB_CantVenta);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.TB_CatVenta);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.TB_ProdVenta);
-            this.groupBox2.Location = new System.Drawing.Point(493, 345);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(297, 161);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Vender producto";
-            // 
-            // Btn_Vender
-            // 
-            this.Btn_Vender.Location = new System.Drawing.Point(23, 126);
-            this.Btn_Vender.Name = "Btn_Vender";
-            this.Btn_Vender.Size = new System.Drawing.Size(252, 23);
-            this.Btn_Vender.TabIndex = 10;
-            this.Btn_Vender.Text = "Vender";
-            this.Btn_Vender.UseVisualStyleBackColor = true;
-            // 
-            // Btn_Buscar
-            // 
-            this.Btn_Buscar.Location = new System.Drawing.Point(23, 99);
-            this.Btn_Buscar.Name = "Btn_Buscar";
-            this.Btn_Buscar.Size = new System.Drawing.Size(252, 23);
-            this.Btn_Buscar.TabIndex = 9;
-            this.Btn_Buscar.Text = "Buscar";
-            this.Btn_Buscar.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(161, 20);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Cantidad vendida";
-            // 
-            // TB_CantVenta
-            // 
-            this.TB_CantVenta.Location = new System.Drawing.Point(163, 34);
-            this.TB_CantVenta.Name = "TB_CantVenta";
-            this.TB_CantVenta.Size = new System.Drawing.Size(112, 20);
-            this.TB_CantVenta.TabIndex = 7;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 20);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Categoria";
-            // 
-            // TB_CatVenta
-            // 
-            this.TB_CatVenta.Location = new System.Drawing.Point(22, 34);
-            this.TB_CatVenta.Name = "TB_CatVenta";
-            this.TB_CatVenta.Size = new System.Drawing.Size(112, 20);
-            this.TB_CatVenta.TabIndex = 6;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(19, 59);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(106, 13);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Nombre del producto";
-            // 
-            // TB_ProdVenta
-            // 
-            this.TB_ProdVenta.Location = new System.Drawing.Point(21, 73);
-            this.TB_ProdVenta.Name = "TB_ProdVenta";
-            this.TB_ProdVenta.Size = new System.Drawing.Size(255, 20);
-            this.TB_ProdVenta.TabIndex = 8;
+            this.Btn_Borrar.Location = new System.Drawing.Point(23, 193);
+            this.Btn_Borrar.Name = "Btn_Borrar";
+            this.Btn_Borrar.Size = new System.Drawing.Size(252, 23);
+            this.Btn_Borrar.TabIndex = 5;
+            this.Btn_Borrar.Text = "Borrar";
+            this.Btn_Borrar.UseVisualStyleBackColor = true;
             // 
             // Btn_Cerrar
             // 
-            this.Btn_Cerrar.Location = new System.Drawing.Point(603, 513);
+            this.Btn_Cerrar.Location = new System.Drawing.Point(603, 487);
             this.Btn_Cerrar.Name = "Btn_Cerrar";
             this.Btn_Cerrar.Size = new System.Drawing.Size(75, 23);
             this.Btn_Cerrar.TabIndex = 11;
@@ -258,7 +168,7 @@ namespace Lucho
             // Lbl_Notificaciones
             // 
             this.Lbl_Notificaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Notificaciones.Location = new System.Drawing.Point(7, 15);
+            this.Lbl_Notificaciones.Location = new System.Drawing.Point(7, 16);
             this.Lbl_Notificaciones.Name = "Lbl_Notificaciones";
             this.Lbl_Notificaciones.Size = new System.Drawing.Size(443, 45);
             this.Lbl_Notificaciones.TabIndex = 11;
@@ -267,75 +177,130 @@ namespace Lucho
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Lucho.Properties.Resources.lucho1;
-            this.pictureBox1.Location = new System.Drawing.Point(52, 16);
+            this.pictureBox1.Location = new System.Drawing.Point(488, 14);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(367, 115);
+            this.pictureBox1.Size = new System.Drawing.Size(302, 91);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.TB_BuscarCant);
+            this.groupBox3.Controls.Add(this.TB_BuscarCat);
+            this.groupBox3.Controls.Add(this.TB_BuscarID);
+            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.Btn_Borrar);
             this.groupBox3.Controls.Add(this.Btn_AumentarStock);
-            this.groupBox3.Controls.Add(this.Btn_BuscarAumentar);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.TB_CantAumentar);
-            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.Btn_Buscar);
             this.groupBox3.Controls.Add(this.TB_CatAumentar);
             this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.TB_ProdAumentar);
-            this.groupBox3.Location = new System.Drawing.Point(493, 181);
+            this.groupBox3.Controls.Add(this.TB_BuscarProd);
+            this.groupBox3.Location = new System.Drawing.Point(493, 248);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(297, 161);
+            this.groupBox3.Size = new System.Drawing.Size(297, 231);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Aumentar Stock";
+            this.groupBox3.Text = "Manejo de Stock";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(211, 24);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(49, 13);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Cantidad";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(121, 24);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(52, 13);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Categoria";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(51, 24);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(18, 13);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "ID";
+            // 
+            // TB_BuscarCant
+            // 
+            this.TB_BuscarCant.BackColor = System.Drawing.SystemColors.Window;
+            this.TB_BuscarCant.Enabled = false;
+            this.TB_BuscarCant.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_BuscarCant.Location = new System.Drawing.Point(199, 40);
+            this.TB_BuscarCant.Name = "TB_BuscarCant";
+            this.TB_BuscarCant.ReadOnly = true;
+            this.TB_BuscarCant.Size = new System.Drawing.Size(77, 20);
+            this.TB_BuscarCant.TabIndex = 15;
+            // 
+            // TB_BuscarCat
+            // 
+            this.TB_BuscarCat.BackColor = System.Drawing.SystemColors.Window;
+            this.TB_BuscarCat.Enabled = false;
+            this.TB_BuscarCat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_BuscarCat.Location = new System.Drawing.Point(109, 40);
+            this.TB_BuscarCat.Name = "TB_BuscarCat";
+            this.TB_BuscarCat.ReadOnly = true;
+            this.TB_BuscarCat.Size = new System.Drawing.Size(77, 20);
+            this.TB_BuscarCat.TabIndex = 14;
+            // 
+            // TB_BuscarID
+            // 
+            this.TB_BuscarID.Location = new System.Drawing.Point(21, 40);
+            this.TB_BuscarID.Name = "TB_BuscarID";
+            this.TB_BuscarID.Size = new System.Drawing.Size(77, 20);
+            this.TB_BuscarID.TabIndex = 7;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(140, 165);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(135, 23);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Disminuir stock";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(22, 167);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(112, 20);
+            this.textBox1.TabIndex = 12;
             // 
             // Btn_AumentarStock
             // 
-            this.Btn_AumentarStock.Location = new System.Drawing.Point(23, 126);
+            this.Btn_AumentarStock.Location = new System.Drawing.Point(140, 135);
             this.Btn_AumentarStock.Name = "Btn_AumentarStock";
-            this.Btn_AumentarStock.Size = new System.Drawing.Size(252, 23);
+            this.Btn_AumentarStock.Size = new System.Drawing.Size(135, 23);
             this.Btn_AumentarStock.TabIndex = 10;
             this.Btn_AumentarStock.Text = "Aumentar stock";
             this.Btn_AumentarStock.UseVisualStyleBackColor = true;
             // 
-            // Btn_BuscarAumentar
+            // Btn_Buscar
             // 
-            this.Btn_BuscarAumentar.Location = new System.Drawing.Point(23, 99);
-            this.Btn_BuscarAumentar.Name = "Btn_BuscarAumentar";
-            this.Btn_BuscarAumentar.Size = new System.Drawing.Size(252, 23);
-            this.Btn_BuscarAumentar.TabIndex = 9;
-            this.Btn_BuscarAumentar.Text = "Buscar";
-            this.Btn_BuscarAumentar.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(161, 20);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(97, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Cantidad a agregar";
-            // 
-            // TB_CantAumentar
-            // 
-            this.TB_CantAumentar.Location = new System.Drawing.Point(163, 34);
-            this.TB_CantAumentar.Name = "TB_CantAumentar";
-            this.TB_CantAumentar.Size = new System.Drawing.Size(112, 20);
-            this.TB_CantAumentar.TabIndex = 7;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(20, 20);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 13);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Categoria";
+            this.Btn_Buscar.Location = new System.Drawing.Point(23, 107);
+            this.Btn_Buscar.Name = "Btn_Buscar";
+            this.Btn_Buscar.Size = new System.Drawing.Size(252, 23);
+            this.Btn_Buscar.TabIndex = 9;
+            this.Btn_Buscar.Text = "Buscar";
+            this.Btn_Buscar.UseVisualStyleBackColor = true;
+            this.Btn_Buscar.Click += new System.EventHandler(this.Btn_Buscar_Click);
             // 
             // TB_CatAumentar
             // 
-            this.TB_CatAumentar.Location = new System.Drawing.Point(22, 34);
+            this.TB_CatAumentar.Location = new System.Drawing.Point(22, 137);
             this.TB_CatAumentar.Name = "TB_CatAumentar";
             this.TB_CatAumentar.Size = new System.Drawing.Size(112, 20);
             this.TB_CatAumentar.TabIndex = 6;
@@ -343,23 +308,29 @@ namespace Lucho
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(19, 59);
+            this.label9.Location = new System.Drawing.Point(90, 67);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(106, 13);
             this.label9.TabIndex = 2;
             this.label9.Text = "Nombre del producto";
             // 
-            // TB_ProdAumentar
+            // TB_BuscarProd
             // 
-            this.TB_ProdAumentar.Location = new System.Drawing.Point(21, 73);
-            this.TB_ProdAumentar.Name = "TB_ProdAumentar";
-            this.TB_ProdAumentar.Size = new System.Drawing.Size(255, 20);
-            this.TB_ProdAumentar.TabIndex = 8;
+            this.TB_BuscarProd.BackColor = System.Drawing.SystemColors.Window;
+            this.TB_BuscarProd.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.TB_BuscarProd.Enabled = false;
+            this.TB_BuscarProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_BuscarProd.Location = new System.Drawing.Point(21, 83);
+            this.TB_BuscarProd.Name = "TB_BuscarProd";
+            this.TB_BuscarProd.ReadOnly = true;
+            this.TB_BuscarProd.Size = new System.Drawing.Size(255, 20);
+            this.TB_BuscarProd.TabIndex = 8;
+            this.TB_BuscarProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.Lbl_Notificaciones);
-            this.groupBox4.Location = new System.Drawing.Point(13, 466);
+            this.groupBox4.Location = new System.Drawing.Point(13, 441);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(460, 70);
             this.groupBox4.TabIndex = 14;
@@ -370,12 +341,10 @@ namespace Lucho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 545);
+            this.ClientSize = new System.Drawing.Size(800, 516);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.Lbl_Prueba);
             this.Controls.Add(this.Btn_Cerrar);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.DGV_Datos);
@@ -389,8 +358,6 @@ namespace Lucho
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Datos)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -412,28 +379,23 @@ namespace Lucho
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Btn_Borrar;
         private System.Windows.Forms.Button Btn_Cargar;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button Btn_Buscar;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox TB_CantVenta;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox TB_CatVenta;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox TB_ProdVenta;
         private System.Windows.Forms.Button Btn_Cerrar;
         private System.Windows.Forms.Label Lbl_Notificaciones;
-        private System.Windows.Forms.Button Btn_Vender;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button Btn_AumentarStock;
-        private System.Windows.Forms.Button Btn_BuscarAumentar;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox TB_CantAumentar;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button Btn_Buscar;
         private System.Windows.Forms.TextBox TB_CatAumentar;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox TB_ProdAumentar;
+        private System.Windows.Forms.TextBox TB_BuscarProd;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label Lbl_Prueba;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox TB_BuscarCant;
+        private System.Windows.Forms.TextBox TB_BuscarCat;
+        private System.Windows.Forms.TextBox TB_BuscarID;
     }
 }
 
