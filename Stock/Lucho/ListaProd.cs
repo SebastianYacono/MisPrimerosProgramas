@@ -91,5 +91,23 @@ namespace Lucho
             }
             return Busca;
         }
+
+        public bool BorrarProd(Producto Producto)
+        {
+            bool DarValor = true;
+
+            for (int fila = 0; fila < DT.Rows.Count; fila++)
+            {
+                if (Convert.ToInt32(DT.Rows[fila]["Id"]) == Producto.Id)
+                {
+                    DT.Rows[fila].Delete();
+                    DT.WriteXml("ListadeProductos.xml");
+                    break;
+                }
+            }
+            return DarValor;
+
+        }
     }
 }
+

@@ -12,7 +12,7 @@ namespace Lucho
 {
     public partial class Principal : Form
     {
-        Producto Buscador = new Producto();
+        Producto Prod = new Producto();
         public Producto[] ListaProd { get; set; }
         public ListaProd Lista { get; set; } = new ListaProd();
 
@@ -45,18 +45,18 @@ namespace Lucho
 
             Lbl_Notificaciones.Text = "El producto se cargó correctamente.";
 
-
+            Prod = new Producto();
         }
 
         private void Btn_Buscar_Click(object sender, EventArgs e)
         {
-            Buscador = Lista.BuscarProd(Convert.ToInt32(TB_BuscarID.Text));
+            Prod = Lista.BuscarProd(Convert.ToInt32(TB_BuscarID.Text));
 
-            if (Buscador.Id > 0)
+            if (Prod.Id > 0)
             {
-                TB_BuscarCat.Text = Buscador.Cat;
-                TB_BuscarCant.Text = Buscador.Cant.ToString();
-                TB_BuscarProd.Text = Buscador.Prod;
+                TB_BuscarCat.Text = Prod.Cat;
+                TB_BuscarCant.Text = Prod.Cant.ToString();
+                TB_BuscarProd.Text = Prod.Prod;
                 
                 TB_BuscarID.Focus();
 
@@ -69,8 +69,26 @@ namespace Lucho
                 TB_BuscarProd.Text = "";
                 TB_BuscarID.Focus();
                 TB_BuscarID.SelectAll();
+
                 Lbl_Notificaciones.Text = "El producto no existe.";
             }
+        }
+
+        private void Btn_Borrar_Click(object sender, EventArgs e)
+        {
+            if (Lista.BorrarProd (Prod))
+            {
+                TB_BuscarCat.Text = "";
+                TB_BuscarCant.Text = "";
+                TB_BuscarProd.Text = "";
+                TB_BuscarID.Text = "";
+                TB_BuscarID.Focus();
+                TB_BuscarID.SelectAll();
+
+                Lbl_Notificaciones.Text = "El producto fue borrado de la lista.";
+            }
+            
+            Prod = new Producto();            
         }
     }
 }

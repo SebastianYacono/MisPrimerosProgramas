@@ -154,6 +154,7 @@ namespace Lucho
             this.Btn_Borrar.TabIndex = 5;
             this.Btn_Borrar.Text = "Borrar";
             this.Btn_Borrar.UseVisualStyleBackColor = true;
+            this.Btn_Borrar.Click += new System.EventHandler(this.Btn_Borrar_Click);
             // 
             // Btn_Cerrar
             // 
