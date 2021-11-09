@@ -49,11 +49,11 @@ namespace Lucho
             this.TB_BuscarCant = new System.Windows.Forms.TextBox();
             this.TB_BuscarCat = new System.Windows.Forms.TextBox();
             this.TB_BuscarID = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Btn_DisminuirStock = new System.Windows.Forms.Button();
+            this.TB_CantDisminuir = new System.Windows.Forms.TextBox();
             this.Btn_AumentarStock = new System.Windows.Forms.Button();
             this.Btn_Buscar = new System.Windows.Forms.Button();
-            this.TB_CatAumentar = new System.Windows.Forms.TextBox();
+            this.TB_CantAumentar = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.TB_BuscarProd = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -66,9 +66,14 @@ namespace Lucho
             // 
             // DGV_Datos
             // 
+            this.DGV_Datos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DGV_Datos.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.DGV_Datos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_Datos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.DGV_Datos.Location = new System.Drawing.Point(12, 14);
             this.DGV_Datos.Name = "DGV_Datos";
+            this.DGV_Datos.RowTemplate.ReadOnly = true;
+            this.DGV_Datos.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.DGV_Datos.Size = new System.Drawing.Size(461, 425);
             this.DGV_Datos.TabIndex = 0;
             // 
@@ -148,6 +153,7 @@ namespace Lucho
             // 
             // Btn_Borrar
             // 
+            this.Btn_Borrar.Enabled = false;
             this.Btn_Borrar.Location = new System.Drawing.Point(23, 193);
             this.Btn_Borrar.Name = "Btn_Borrar";
             this.Btn_Borrar.Size = new System.Drawing.Size(252, 23);
@@ -193,12 +199,12 @@ namespace Lucho
             this.groupBox3.Controls.Add(this.TB_BuscarCant);
             this.groupBox3.Controls.Add(this.TB_BuscarCat);
             this.groupBox3.Controls.Add(this.TB_BuscarID);
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.Btn_DisminuirStock);
+            this.groupBox3.Controls.Add(this.TB_CantDisminuir);
             this.groupBox3.Controls.Add(this.Btn_Borrar);
             this.groupBox3.Controls.Add(this.Btn_AumentarStock);
             this.groupBox3.Controls.Add(this.Btn_Buscar);
-            this.groupBox3.Controls.Add(this.TB_CatAumentar);
+            this.groupBox3.Controls.Add(this.TB_CantAumentar);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.TB_BuscarProd);
             this.groupBox3.Location = new System.Drawing.Point(493, 248);
@@ -264,30 +270,34 @@ namespace Lucho
             this.TB_BuscarID.Size = new System.Drawing.Size(77, 20);
             this.TB_BuscarID.TabIndex = 7;
             // 
-            // button1
+            // Btn_DisminuirStock
             // 
-            this.button1.Location = new System.Drawing.Point(140, 165);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(135, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Disminuir stock";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Btn_DisminuirStock.Enabled = false;
+            this.Btn_DisminuirStock.Location = new System.Drawing.Point(140, 165);
+            this.Btn_DisminuirStock.Name = "Btn_DisminuirStock";
+            this.Btn_DisminuirStock.Size = new System.Drawing.Size(135, 23);
+            this.Btn_DisminuirStock.TabIndex = 13;
+            this.Btn_DisminuirStock.Text = "Disminuir stock";
+            this.Btn_DisminuirStock.UseVisualStyleBackColor = true;
+            this.Btn_DisminuirStock.Click += new System.EventHandler(this.Btn_DisminuirStock_Click);
             // 
-            // textBox1
+            // TB_CantDisminuir
             // 
-            this.textBox1.Location = new System.Drawing.Point(22, 167);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(112, 20);
-            this.textBox1.TabIndex = 12;
+            this.TB_CantDisminuir.Location = new System.Drawing.Point(22, 167);
+            this.TB_CantDisminuir.Name = "TB_CantDisminuir";
+            this.TB_CantDisminuir.Size = new System.Drawing.Size(112, 20);
+            this.TB_CantDisminuir.TabIndex = 12;
             // 
             // Btn_AumentarStock
             // 
+            this.Btn_AumentarStock.Enabled = false;
             this.Btn_AumentarStock.Location = new System.Drawing.Point(140, 135);
             this.Btn_AumentarStock.Name = "Btn_AumentarStock";
             this.Btn_AumentarStock.Size = new System.Drawing.Size(135, 23);
             this.Btn_AumentarStock.TabIndex = 10;
             this.Btn_AumentarStock.Text = "Aumentar stock";
             this.Btn_AumentarStock.UseVisualStyleBackColor = true;
+            this.Btn_AumentarStock.Click += new System.EventHandler(this.Btn_AumentarStock_Click);
             // 
             // Btn_Buscar
             // 
@@ -299,12 +309,12 @@ namespace Lucho
             this.Btn_Buscar.UseVisualStyleBackColor = true;
             this.Btn_Buscar.Click += new System.EventHandler(this.Btn_Buscar_Click);
             // 
-            // TB_CatAumentar
+            // TB_CantAumentar
             // 
-            this.TB_CatAumentar.Location = new System.Drawing.Point(22, 137);
-            this.TB_CatAumentar.Name = "TB_CatAumentar";
-            this.TB_CatAumentar.Size = new System.Drawing.Size(112, 20);
-            this.TB_CatAumentar.TabIndex = 6;
+            this.TB_CantAumentar.Location = new System.Drawing.Point(22, 137);
+            this.TB_CantAumentar.Name = "TB_CantAumentar";
+            this.TB_CantAumentar.Size = new System.Drawing.Size(112, 20);
+            this.TB_CantAumentar.TabIndex = 6;
             // 
             // label9
             // 
@@ -385,12 +395,12 @@ namespace Lucho
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button Btn_AumentarStock;
         private System.Windows.Forms.Button Btn_Buscar;
-        private System.Windows.Forms.TextBox TB_CatAumentar;
+        public System.Windows.Forms.TextBox TB_CantAumentar;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox TB_BuscarProd;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button Btn_DisminuirStock;
+        private System.Windows.Forms.TextBox TB_CantDisminuir;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;

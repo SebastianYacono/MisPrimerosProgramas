@@ -49,7 +49,7 @@ namespace Lucho
         }
 
         private void Btn_Buscar_Click(object sender, EventArgs e)
-        {
+       {
             Prod = Lista.BuscarProd(Convert.ToInt32(TB_BuscarID.Text));
 
             if (Prod.Id > 0)
@@ -59,6 +59,10 @@ namespace Lucho
                 TB_BuscarProd.Text = Prod.Prod;
                 
                 TB_BuscarID.Focus();
+
+                Btn_AumentarStock.Enabled = true;
+                Btn_DisminuirStock.Enabled = true;
+                Btn_Borrar.Enabled = true;
 
                 Lbl_Notificaciones.Text = "Producto encontrado.";
             }
@@ -85,10 +89,44 @@ namespace Lucho
                 TB_BuscarID.Focus();
                 TB_BuscarID.SelectAll();
 
+                Btn_AumentarStock.Enabled = false;
+                Btn_DisminuirStock.Enabled = false;
+                Btn_Borrar.Enabled = false;
+
                 Lbl_Notificaciones.Text = "El producto fue borrado de la lista.";
             }
             
             Prod = new Producto();            
+        }
+
+        public void Btn_AumentarStock_Click(object sender, EventArgs e)
+        {
+            Producto Producto = new Producto();
+            Producto.CantMas = Convert.ToInt32(TB_CantAumentar.Text);
+                        
+            if (Lista.SumarCant(Prod))
+            {
+                TB_BuscarCat.Text = "";
+                TB_BuscarCant.Text = "";
+                TB_BuscarProd.Text = "";
+                TB_BuscarID.Text = "";
+                TB_CantAumentar.Text = "";
+                TB_BuscarID.Focus();
+                TB_BuscarID.SelectAll();
+
+                Btn_AumentarStock.Enabled = false;
+                Btn_DisminuirStock.Enabled = false;
+                Btn_Borrar.Enabled = false;
+
+                Lbl_Notificaciones.Text = "Tu Stock ha aumentado";
+            }
+
+            Prod = new Producto();
+        }
+
+        private void Btn_DisminuirStock_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

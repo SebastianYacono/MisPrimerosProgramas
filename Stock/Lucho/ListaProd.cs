@@ -12,7 +12,7 @@ namespace Lucho
     {
         public DataTable DT { get; set; } = new DataTable();
         public int UltimoID { get; set; } = 0;
-
+        
         public ListaProd()
         {
             DT.TableName = "TablaDatos";
@@ -21,6 +21,10 @@ namespace Lucho
             DT.Columns.Add("Producto");
             DT.Columns.Add("Cantidad");
             DTArchivo();
+
+            
+
+            
         }
 
         public void DTArchivo()
@@ -106,8 +110,32 @@ namespace Lucho
                 }
             }
             return DarValor;
-
         }
+
+        public bool SumarCant(Producto Producto)
+        {
+            bool DarValor = true;
+
+            
+            Producto.Cant += 1;
+           
+
+            for (int fila = 0; fila < DT.Rows.Count; fila++)
+            {
+                if (Convert.ToInt32(DT.Rows[fila]["Id"]) == Producto.Id)
+                {
+                    
+
+                    DT.Rows[fila]["Cantidad"] = Producto.Cant;
+                    DT.WriteXml("ListadeProductos.xml");
+                    break;
+                }
+            }
+            
+            return DarValor;
+        }
+
+
     }
 }
 
