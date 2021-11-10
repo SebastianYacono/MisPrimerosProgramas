@@ -117,7 +117,7 @@ namespace Lucho
             bool DarValor = true;
 
             
-            Producto.Cant += 1;
+            Producto.Cant = Producto.Cant + Producto.CantMas;
            
 
             for (int fila = 0; fila < DT.Rows.Count; fila++)
@@ -128,10 +128,35 @@ namespace Lucho
 
                     DT.Rows[fila]["Cantidad"] = Producto.Cant;
                     DT.WriteXml("ListadeProductos.xml");
+                    Producto.CantMas = 0;
                     break;
                 }
             }
             
+            return DarValor;
+        }
+
+        public bool RestarCant(Producto Producto)
+        {
+            bool DarValor = true;
+
+
+            Producto.Cant = Producto.Cant - Producto.CantMenos;
+
+
+            for (int fila = 0; fila < DT.Rows.Count; fila++)
+            {
+                if (Convert.ToInt32(DT.Rows[fila]["Id"]) == Producto.Id)
+                {
+
+
+                    DT.Rows[fila]["Cantidad"] = Producto.Cant;
+                    DT.WriteXml("ListadeProductos.xml");
+                    Producto.CantMas = 0;
+                    break;
+                }
+            }
+
             return DarValor;
         }
 

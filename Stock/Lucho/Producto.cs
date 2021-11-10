@@ -12,9 +12,10 @@ namespace Lucho
         public string Cat { get; set; }
         public string Prod { get; set; }
         public int Cant { get; set; }
-        public double CantMas { get; set; }
-        
-        
+        public int CantMas { get; set; }
+        public int CantMenos { get; set; }
+
+
 
     }
 }

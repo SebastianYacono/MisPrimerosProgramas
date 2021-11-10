@@ -101,8 +101,7 @@ namespace Lucho
 
         public void Btn_AumentarStock_Click(object sender, EventArgs e)
         {
-            Producto Producto = new Producto();
-            Producto.CantMas = Convert.ToInt32(TB_CantAumentar.Text);
+            Prod.CantMas = Convert.ToInt32(TB_CantAumentar.Text);
                         
             if (Lista.SumarCant(Prod))
             {
@@ -111,6 +110,7 @@ namespace Lucho
                 TB_BuscarProd.Text = "";
                 TB_BuscarID.Text = "";
                 TB_CantAumentar.Text = "";
+                TB_CantDisminuir.Text = "";
                 TB_BuscarID.Focus();
                 TB_BuscarID.SelectAll();
 
@@ -126,7 +126,27 @@ namespace Lucho
 
         private void Btn_DisminuirStock_Click(object sender, EventArgs e)
         {
+            Prod.CantMenos = Convert.ToInt32(TB_CantDisminuir.Text);
 
+            if (Lista.RestarCant(Prod))
+            {
+                TB_BuscarCat.Text = "";
+                TB_BuscarCant.Text = "";
+                TB_BuscarProd.Text = "";
+                TB_BuscarID.Text = "";
+                TB_CantAumentar.Text = "";
+                TB_CantDisminuir.Text = "";
+                TB_BuscarID.Focus();
+                TB_BuscarID.SelectAll();
+
+                Btn_AumentarStock.Enabled = false;
+                Btn_DisminuirStock.Enabled = false;
+                Btn_Borrar.Enabled = false;
+
+                Lbl_Notificaciones.Text = "Felicidades, has vendido un producto.";
+            }
+
+            Prod = new Producto();
         }
     }
 }
